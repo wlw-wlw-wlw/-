@@ -4,19 +4,18 @@ import (
 	"fmt"
 )
 func main() {
-	var n,a,b,len int 
+	var n int
+	var check bool
 	fmt.Scan(&n)
-	numlist:=make([]int,2000000)
-	for i:=0;i<n;i++{
-		fmt.Scan(&a)
-		if a==1||a==3{
-			fmt.Scan(&b)
+	for i:=2;i<n;i++{
+		check=true
+		for ii:=0;ii<i;ii++{
+			if i%ii==0{
+				check=false
+				}
+			}
+		if check{
+			fmt.Println(i)
+			}
 		}
-		switch a{
-		case 1:numlist[len]=b;len++
-		case 2:fmt.Println(numlist[len-1])
-		case 3:fmt.Println(numlist[b])
-		case 4:len--
-		}
-	}
 }
